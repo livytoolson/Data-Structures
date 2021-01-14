@@ -39,7 +39,7 @@ class DoublyLinkedList:
                                             # can combine lines 40 and 41 to be -- new_node.next = self.head
         old_head = self.head                # this doesn't change structure -- just for readability
         new_node.next = old_head            # this makes our new node the new head of the list
-        old_head.previous = new_node        # or -- self.head.previous = new_node
+        old_head.prev = new_node            # or -- self.head.previous = new_node
         self.head = new_node                # reassign head to new node 
         
     """
@@ -114,6 +114,9 @@ class DoublyLinkedList:
     def move_to_front(self, node):
         if self.length == 0:
             return
+
+        # if node.prev is None:             # used this for testing purposes
+        #     return
 
         if self.head is node:               # if the node is already at the head end the function
             return
